@@ -18,15 +18,6 @@
             font-size: 1.5rem;
         }
     }
-
-    // svg {
-    //     border: 1px solid green;
-    //     padding: 0;
-    //     margin: 0;
-    //     height: 75px;
-    //     width: 75px;
-    // }
-
 }
 
 .held {
@@ -37,12 +28,17 @@
 // CSS DICE 
 
 .cssDice {
+
+    display: block;
+    position: relative;
     width: 100%;
     height: 100%;
     border: 3px solid;
     border-radius: 10px;
 
     &::before {
+        display: block;
+        position: absolute;
         content: "";
         background: currentColor;
         width: 11px;
@@ -58,18 +54,17 @@
 }
 
 .cssDice_1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    &::before {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 .cssDice_2 {
-    display: block;
-    position: relative;
 
     &::before {
-        display: block;
-        position: absolute;
         left: 11px;
         top: 11px;
         box-shadow: 30px 30px 0;
@@ -84,12 +79,8 @@
 }
 
 .cssDice_3 {
-    display: block;
-    position: relative;
 
     &::before {
-        display: block;
-        position: absolute;
         left: 11px;
         top: 11px;
         box-shadow:
@@ -108,12 +99,8 @@
 }
 
 .cssDice_4 {
-    display: block;
-    position: relative;
 
     &::before {
-        display: block;
-        position: absolute;
         left: 11px;
         top: 11px;
         box-shadow:
@@ -134,12 +121,8 @@
 }
 
 .cssDice_5 {
-    display: block;
-    position: relative;
 
     &::before {
-        display: block;
-        position: absolute;
         left: 11px;
         top: 11px;
         box-shadow:
@@ -162,12 +145,8 @@
 }
 
 .cssDice_6 {
-    display: block;
-    position: relative;
 
     &::before {
-        display: block;
-        position: absolute;
         left: 11px;
         top: 11px;
         box-shadow:

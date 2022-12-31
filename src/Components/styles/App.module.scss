@@ -42,9 +42,11 @@
         margin: 3rem 0 2.5rem;
 
         @media only screen and (max-width: 767px) {
-            grid-template-columns: repeat(2, 65px);
-            grid-template-rows: repeat(5, 65px);
-            gap: 20px;
+            grid-template-columns: repeat(2, 60px);
+            grid-template-rows: repeat(5, 60px);
+            gap: 10px;
+            margin: 2rem 0 2rem;
+
         }
 
     }
@@ -74,8 +76,8 @@
         }
 
         @media only screen and (max-width: 767px) {
-            height: 60px;
-            font-size: 1.25rem;
+            height: 55px;
+            font-size: 1rem;
         }
 
     }
@@ -114,4 +116,19 @@
         font-weight: 700;
         color: #ffffff;
     }
+
+    @media only screen and (max-width: 767px) {
+        padding: 1rem;
+
+        div,
+        span {
+            font-size: 1rem;
+        }
+
+        div:nth-child(2) span {
+            padding: 1rem 0;
+            width: 2.75rem;
+        }
+    }
+
 }

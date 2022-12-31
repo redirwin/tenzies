@@ -88,9 +88,13 @@ export default function App() {
             at its current value between rolls.
           </p>
         ) : (
-          <div className={styles.flexDiv}>
-            <div>Lowest Rolls: {stats.lowestRolls}</div>
-            <div>Current Rolls: {rolls}</div>
+          <div className={styles.score}>
+            <div>
+              Lowest Rolls: <span>{stats.lowestRolls}</span>
+            </div>
+            <div>
+              Current Rolls: <span>{rolls}</span>
+            </div>
           </div>
         )}
       </header>

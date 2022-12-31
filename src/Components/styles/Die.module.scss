@@ -19,8 +19,174 @@
         }
     }
 
+    // svg {
+    //     border: 1px solid green;
+    //     padding: 0;
+    //     margin: 0;
+    //     height: 75px;
+    //     width: 75px;
+    // }
+
 }
 
 .held {
     background: #59E391;
+}
+
+
+// CSS DICE 
+
+.cssDice {
+    width: 100%;
+    height: 100%;
+    border: 3px solid;
+    border-radius: 10px;
+
+    &::before {
+        content: "";
+        background: currentColor;
+        width: 11px;
+        height: 11px;
+        border-radius: 11px;
+
+        @media only screen and (max-width: 767px) {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+        }
+    }
+}
+
+.cssDice_1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cssDice_2 {
+    display: block;
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        left: 11px;
+        top: 11px;
+        box-shadow: 30px 30px 0;
+
+        @media only screen and (max-width: 767px) {
+            left: 9px;
+            top: 9px;
+            box-shadow: 25px 25px 0;
+        }
+
+    }
+}
+
+.cssDice_3 {
+    display: block;
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        left: 11px;
+        top: 11px;
+        box-shadow:
+            15px 15px 0,
+            30px 30px 0;
+
+        @media only screen and (max-width: 767px) {
+            left: 9px;
+            top: 9px;
+            box-shadow:
+                13px 13px 0,
+                27px 27px 0;
+        }
+
+    }
+}
+
+.cssDice_4 {
+    display: block;
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        left: 11px;
+        top: 11px;
+        box-shadow:
+            30px 0 0,
+            30px 30px 0,
+            0 30px 0;
+
+        @media only screen and (max-width: 767px) {
+            left: 9px;
+            top: 9px;
+            box-shadow:
+                26px 0 0,
+                26px 26px 0,
+                0 26px 0;
+        }
+
+    }
+}
+
+.cssDice_5 {
+    display: block;
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        left: 11px;
+        top: 11px;
+        box-shadow:
+            15px 15px 0,
+            30px 0 0,
+            30px 30px 0,
+            0 30px 0;
+
+        @media only screen and (max-width: 767px) {
+            left: 9px;
+            top: 9px;
+            box-shadow:
+                13px 13px 0,
+                26px 0 0,
+                26px 26px 0,
+                0 26px 0;
+        }
+
+    }
+}
+
+.cssDice_6 {
+    display: block;
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        left: 11px;
+        top: 11px;
+        box-shadow:
+            0 15px 0,
+            30px 15px 0,
+            30px 0 0,
+            30px 30px 0,
+            0 30px 0;
+
+        @media only screen and (max-width: 767px) {
+            left: 9px;
+            top: 9px;
+            box-shadow:
+                0 13px 0,
+                26px 13px 0,
+                26px 0 0,
+                26px 26px 0,
+                0 26px 0;
+        }
+
+    }
 }

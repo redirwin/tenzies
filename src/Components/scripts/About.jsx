@@ -3,11 +3,13 @@ import { TfiGithub, TfiLinkedin, TfiTwitter } from "react-icons/tfi";
 import { SlRefresh } from "react-icons/sl";
 
 export default function About(props) {
+  function handleLinkClick(event) {
+    console.log("link clicked");
+    event.stopPropagation();
+  }
+
   return (
-    <aside
-      className={styles.About}
-      onClick={(event) => props.handleShowAbout(event)}
-    >
+    <aside className={styles.About} onClick={() => props.handleShowAbout()}>
       <h1>
         Tenzies
         <img
@@ -37,7 +39,11 @@ export default function About(props) {
         requirements, including viewport responsiveness, a reset button, a help
         section, dice pips (built entirely with CSS), and score keeping using
         local browser storage. The source code for this project is{" "}
-        <a href="https://github.com/redirwin/tenzies" target="_blank">
+        <a
+          href="https://github.com/redirwin/tenzies"
+          target="_blank"
+          onClick={handleLinkClick}
+        >
           available on GitHub
         </a>
         .
@@ -45,13 +51,25 @@ export default function About(props) {
       <h2>
         About the Developer
         <div>
-          <a href="https://linkedin.com/in/redirwin" target="_blank">
+          <a
+            href="https://linkedin.com/in/redirwin"
+            target="_blank"
+            onClick={handleLinkClick}
+          >
             <TfiLinkedin />
           </a>
-          <a href="https://github.com/redirwin" target="_blank">
+          <a
+            href="https://github.com/redirwin"
+            target="_blank"
+            onClick={handleLinkClick}
+          >
             <TfiGithub />
           </a>
-          <a href="https://twitter.com/redirwin" target="_blank">
+          <a
+            href="https://twitter.com/redirwin"
+            target="_blank"
+            onClick={handleLinkClick}
+          >
             <TfiTwitter />
           </a>
         </div>
@@ -75,6 +93,7 @@ export default function About(props) {
         <a
           href="https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies?node-id=0%3A1&t=TOdKWZrJiJx4txmM-0"
           target="_blank"
+          onClick={handleLinkClick}
         >
           design specs
         </a>{" "}
@@ -88,15 +107,24 @@ export default function About(props) {
           href="https://www.flaticon.com/free-icon/dice_6027091?term=dice&page=2&position=10&origin=tag&related_id=6027091"
           title="dice icons"
           target="_blank"
+          onClick={handleLinkClick}
         >
           Freepik - Flaticon
         </a>
         . In-game and UI icons are from various sources and included using the{" "}
-        <a href="https://react-icons.github.io/react-icons/" target="_blank">
+        <a
+          href="https://react-icons.github.io/react-icons/"
+          target="_blank"
+          onClick={handleLinkClick}
+        >
           React Icons
         </a>{" "}
         library. The confetti animation is included using the{" "}
-        <a href="https://www.npmjs.com/package/react-confetti" target="_blank">
+        <a
+          href="https://www.npmjs.com/package/react-confetti"
+          target="_blank"
+          onClick={handleLinkClick}
+        >
           React Confetti
         </a>{" "}
         library.

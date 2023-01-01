@@ -62,7 +62,8 @@ export default function App() {
           : { ...die, value: Math.ceil(Math.random() * 6) };
       })
     );
-    setRolls((prevRolls) => prevRolls + 1);
+    // checks if all dice are held before incrementing rolls
+    !dice.every((die) => die.isHeld) && setRolls((prevRolls) => prevRolls + 1);
   }
 
   function holdDice(id) {

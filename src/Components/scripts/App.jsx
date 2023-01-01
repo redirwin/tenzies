@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import { AiOutlineQuestionCircle, AiFillCloseCircle } from "react-icons/ai";
+import { SlRefresh } from "react-icons/sl";
 import Confetti from "react-confetti";
 import styles from "../styles/App.module.scss";
 import Die from "./Die";
+import About from "./About";
 
 export default function App() {
   const [rolls, setRolls] = useState(0);
@@ -10,6 +13,7 @@ export default function App() {
   const [dice, setDice] = useState(getAllNewDice);
   const [tenzies, setTenzies] = useState(false);
   const [stats, setStats] = useState(getStats());
+  const [displayAbout, setDisplayAbout] = useState(false);
 
   useEffect(() => {
     const allDiceSame = dice.every((die) => die.value === dice[0].value);
@@ -74,39 +78,65 @@ export default function App() {
     );
   }
 
+  function resetGame() {
+    setDice(getAllNewDice);
+    setRolls(1);
+    setTenzies(false);
+    setShowInstructions(false);
+  }
+
+  function handleShowAbout() {
+    setDisplayAbout(!displayAbout);
+  }
+
   const diceElements = dice.map((die) => (
     <Die key={die.id} {...die} holdDice={holdDice} />
   ));
 
   return (
-    <main className={styles.App}>
-      {tenzies && <Confetti />}
-      <header>
-        <h1>Tenzies</h1>
-        {rolls === 0 && showInstructions === true ? (
-          <p>
-            Roll until all dice are the same. Click or tap each die to freeze it
-            at its current value between rolls.
-          </p>
-        ) : (
-          <div className={styles.score}>
-            <div>
-              Lowest Rolls: <span>{stats.lowestRolls}</span>
+    <>
+      {displayAbout && <About handleShowAbout={handleShowAbout} />}
+      <main className={styles.App}>
+        {!displayAbout && (tenzies && <Confetti />)}
+        <header>
+          <button
+            title="Help & About"
+            className={styles.help}
+            onClick={handleShowAbout}
+          >
+            {!displayAbout ? <AiOutlineQuestionCircle /> : <AiFillCloseCircle />}
+          </button>
+          <h1>Tenzies</h1>
+          {rolls === 0 && showInstructions === true ? (
+            <p>
+              Roll until all dice are the same. Click or tap each die to freeze
+              it at its current value between rolls.
+            </p>
+          ) : (
+            <div className={styles.score}>
+              <div>
+                Lowest Rolls: <span>{stats.lowestRolls}</span>
+              </div>
+              <div>
+                Current Rolls: <span>{rolls}</span>
+              </div>
             </div>
-            <div>
-              Current Rolls: <span>{rolls}</span>
-            </div>
-          </div>
+          )}
+        </header>
+        {rolls > 0 && (
+          <section className={styles.dice_container}>{diceElements}</section>
         )}
-      </header>
-      {rolls > 0 && (
-        <section className={styles.dice_container}>{diceElements}</section>
-      )}
-      <div>
-        <button onClick={rollDice}>
-          {tenzies ? "New Game" : rolls === 0 ? "Let's Roll!" : "Roll again!"}
-        </button>
-      </div>
-    </main>
+        <div className={styles.button_container}>
+          {rolls > 0 && !tenzies && (
+            <button title="New Game" className={styles.new} onClick={resetGame}>
+              <SlRefresh />
+            </button>
+          )}
+          <button title="Roll Dice" onClick={rollDice}>
+            {tenzies ? "New Game" : rolls === 0 ? "Let's Roll!" : "Roll again!"}
+          </button>
+        </div>
+      </main>
+    </>
   );
 }

@@ -32,6 +32,9 @@ export default function About(props) {
         including a reset button, a help button, dice pips (built with CSS), and
         score keeping using local browser storage.
       </p>
+      <p>
+        The source code for this project is <a href="https://github.com/redirwin/tenzies" target="_blank">available on GitHub</a>.
+      </p>
       <h2>About the Developer</h2>
       <p>
         David Irwin is a web developer based in Mesa, Arizona. He has been

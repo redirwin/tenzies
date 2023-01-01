@@ -3,6 +3,7 @@
 
     .help {
         position: fixed;
+        z-index: 2000;
         top: 2rem;
         left: 2rem;
         background: white;
@@ -13,7 +14,7 @@
         font-family: 'Karla', sans-serif;
         font-size: 2rem;
         font-weight: 700;
-        color: #5035FF;
+        color: #677CD5;
 
         &:active {
             background: white;
@@ -21,11 +22,14 @@
         }
 
         @media only screen and (max-width: 767px) {
-            background: #5035FF;
+            background: #677CD5;
             color: white;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1.75rem;
 
             &:active {
-                background: #5035FF;
+                background: #677CD5;
             }
         }
 
@@ -33,6 +37,7 @@
     }
 
     header {
+        z-index: 100;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -43,21 +48,50 @@
     }
 
     h1 {
+        z-index: 100;
         display: flex;
         align-items: center;
         font-family: 'Karla', sans-serif;
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
+        img {
+            width: 3rem;
+            margin: 1rem;
+            margin-right: 0;
+        }
+        @media only screen and (max-width: 767px) {
+            img {
+                width: 2.25rem;
+                margin: .75rem;
+            }
+        }
     }
 
     p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: 400;
         margin: 1rem 5rem 1.5rem;
         background: #FFFFFF;
-        padding: 1rem 2rem;
+        padding: 1rem 2rem 2rem;
         border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        // img {
+        //     width: 50%;
+        //     max-width: 150px;
+        //     height: auto;
+        //     margin: 2rem 0 1rem;
+        //     text-align: center;
+        // }
 
         @media only screen and (max-width: 767px) {
             margin: 1rem 2rem 1.5rem;
@@ -65,12 +99,13 @@
     }
 
     .dice_container {
+        z-index: 100;
         display: grid;
         grid-template-columns: repeat(5, 70px);
         grid-template-rows: repeat(2, 70px);
         gap: 25px;
         justify-content: center;
-        margin: 3rem 0 2.5rem;
+        margin: 4rem 0 3.5rem;
 
         @media only screen and (max-width: 767px) {
             grid-template-columns: repeat(2, 60px);
@@ -83,6 +118,7 @@
     }
 
     .button_container {
+        z-index: 100;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -91,12 +127,13 @@
         margin: 0 auto;
 
         button {
+            z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0 3rem;
             height: 65px;
-            background: #5035FF;
+            background: #677CD5;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
             border: 2px solid white;
             border-radius: 10px;
@@ -143,11 +180,11 @@
 }
 
 .score {
-
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: space-between;
     padding: 1rem 2rem;
     border-radius: 10px;
     background: #FFFFFF;
@@ -168,7 +205,7 @@
     }
 
     div:nth-child(2) span {
-        color: #5035FF;
+        color: #677CD5;
         font-size: 1.5rem;
     }
 

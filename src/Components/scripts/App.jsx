@@ -96,21 +96,33 @@ export default function App() {
   return (
     <>
       {displayAbout && <About handleShowAbout={handleShowAbout} />}
+      {tenzies && <Confetti />}
       <main className={styles.App}>
-        {!displayAbout && (tenzies && <Confetti />)}
         <header>
           <button
             title="Help & About"
             className={styles.help}
             onClick={handleShowAbout}
           >
-            {!displayAbout ? <AiOutlineQuestionCircle /> : <AiFillCloseCircle />}
+            {!displayAbout ? (
+              <AiOutlineQuestionCircle />
+            ) : (
+              <AiFillCloseCircle />
+            )}
           </button>
-          <h1>Tenzies</h1>
+          <h1>
+            Tenzies
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/6027/6027091.png"
+              alt="dice"
+            />
+          </h1>
           {rolls === 0 && showInstructions === true ? (
             <p>
-              Roll until all dice are the same. Click or tap each die to freeze
-              it at its current value between rolls.
+              <span>How to Play</span>
+              Click or tap on a die to lock or unlock it. Only unlocked dice
+              will be rolled when you click the Roll button. The game is won
+              when all ten dice are matched and locked. Use the refresh button to quickly try for a better first roll.
             </p>
           ) : (
             <div className={styles.score}>
@@ -118,7 +130,7 @@ export default function App() {
                 Lowest Rolls: <span>{stats.lowestRolls}</span>
               </div>
               <div>
-                Current Rolls: <span>{rolls}</span>
+                Rolls This Game: <span>{rolls}</span>
               </div>
             </div>
           )}
@@ -128,12 +140,12 @@ export default function App() {
         )}
         <div className={styles.button_container}>
           {rolls > 0 && !tenzies && (
-            <button title="New Game" className={styles.new} onClick={resetGame}>
+            <button title="Refresh Game" className={styles.new} onClick={resetGame}>
               <SlRefresh />
             </button>
           )}
           <button title="Roll Dice" onClick={rollDice}>
-            {tenzies ? "New Game" : rolls === 0 ? "Let's Roll!" : "Roll again!"}
+            {tenzies ? "New Game" : rolls === 0 ? "Let's Roll!" : "Roll 'em'!"}
           </button>
         </div>
       </main>

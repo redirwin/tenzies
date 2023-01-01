@@ -4,7 +4,10 @@ import { SlRefresh } from "react-icons/sl";
 
 export default function About(props) {
   return (
-    <aside className={styles.About} onClick={() => props.handleShowAbout()}>
+    <aside
+      className={styles.About}
+      onClick={(event) => props.handleShowAbout(event)}
+    >
       <h1>
         Tenzies
         <img
@@ -14,10 +17,10 @@ export default function About(props) {
       </h1>
       <h2>Rules</h2>
       <p>
-        This is an easy version of the popular dice game, Tenzi. The game is won
-        when all ten dice are matched and locked. Click or tap on a die to lock
-        or unlock it. Only unlocked dice will be rolled when you click the Roll
-        button.
+        This is a simpler version of the popular dice game, Tenzi. The game is
+        won when all ten dice are matched and locked. Click or tap on a die to
+        lock or unlock it. Only unlocked dice will be rolled when you click the
+        Roll button.
       </p>
       <p>
         Use the <SlRefresh /> button to immediately create a new game. This is a
@@ -29,12 +32,8 @@ export default function About(props) {
       </p>
       <h2>About</h2>
       <p>
-        This implementation of Tenzies is built using React.js and modular Sass,
-        with original design specs and requirements provided by{" "}
-        <a href="https://scrimba.com/community" target="_blank">
-          Scrimba
-        </a>
-        . The developer, David Irwin, has added several upgrades to the initial
+        This implementation of Tenzies is built using React.js and modular Sass.
+        The developer, David Irwin, has added several upgrades to the initial
         requirements, including viewport responsiveness, a reset button, a help
         section, dice pips (built entirely with CSS), and score keeping using
         local browser storage. The source code for this project is{" "}
@@ -43,29 +42,65 @@ export default function About(props) {
         </a>
         .
       </p>
-      <h2>About the Developer</h2>
+      <h2>
+        About the Developer
+        <div>
+          <a href="https://linkedin.com/in/redirwin" target="_blank">
+            <TfiLinkedin />
+          </a>
+          <a href="https://github.com/redirwin" target="_blank">
+            <TfiGithub />
+          </a>
+          <a href="https://twitter.com/redirwin" target="_blank">
+            <TfiTwitter />
+          </a>
+        </div>
+      </h2>
       <p>
         David Irwin is a dad, husband, and web developer based in Mesa, Arizona.
-        He has been building websites and web applications for over 10 years,
-        and has been working with React.js since 2019.
+        He has been building websites for over 10 years, and working with
+        React.js since 2019. He is currently building a React.js Minesweeper
+        clone as a personal project, and has plans to develop a full-stack
+        headless CMS and a suite of business tools for notary publics.
       </p>
       <p>
         David works in higher education, and is heavily involved with custom
-        Drupal CMS implementations. He is currently building a React.js
-        Minesweeper clone as a personal project, and has plans to develop a
-        full-stack headless CMS and several business tools for notary publics.
+        Drupal CMS implementations.
       </p>
-      <div>
-        <a href="https://linkedin.com/in/redirwin" target="_blank">
-          <TfiLinkedin />
+
+      <h2>Attribution</h2>
+      <p className={styles.attribution}>
+        {" "}
+        Original{" "}
+        <a
+          href="https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies?node-id=0%3A1&t=TOdKWZrJiJx4txmM-0"
+          target="_blank"
+        >
+          design specs
+        </a>{" "}
+        and requirements provided by{" "}
+        <a href="https://scrimba.com/community" target="_blank">
+          Scrimba
         </a>
-        <a href="https://github.com/redirwin" target="_blank">
-          <TfiGithub />
+        . The two-dice icon, which provided inspiration for the final color
+        scheme, was created by{" "}
+        <a
+          href="https://www.flaticon.com/free-icon/dice_6027091?term=dice&page=2&position=10&origin=tag&related_id=6027091"
+          title="dice icons"
+          target="_blank"
+        >
+          Freepik - Flaticon
         </a>
-        <a href="https://twitter.com/redirwin" target="_blank">
-          <TfiTwitter />
-        </a>
-      </div>
+        . In-game and UI icons are from various sources and included using the{" "}
+        <a href="https://react-icons.github.io/react-icons/" target="_blank">
+          React Icons
+        </a>{" "}
+        library. The confetti animation is included using the{" "}
+        <a href="https://www.npmjs.com/package/react-confetti" target="_blank">
+          React Confetti
+        </a>{" "}
+        library.
+      </p>
     </aside>
   );
 }

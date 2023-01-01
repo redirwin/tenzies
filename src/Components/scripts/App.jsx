@@ -122,7 +122,8 @@ export default function App() {
               <span>How to Play</span>
               Click or tap on a die to lock or unlock it. Only unlocked dice
               will be rolled when you click the Roll button. The game is won
-              when all ten dice are matched and locked. Use the refresh button to quickly try for a better first roll.
+              when all ten dice are matched and locked. Use the refresh button
+              to quickly try for a better first roll.
             </p>
           ) : (
             <div className={styles.score}>
@@ -140,7 +141,11 @@ export default function App() {
         )}
         <div className={styles.button_container}>
           {rolls > 0 && !tenzies && (
-            <button title="Refresh Game" className={styles.new} onClick={resetGame}>
+            <button
+              title="Refresh Game"
+              className={styles.new}
+              onClick={resetGame}
+            >
               <SlRefresh />
             </button>
           )}

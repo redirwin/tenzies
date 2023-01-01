@@ -24,7 +24,7 @@ export default function About(props) {
         quick way to try for a better first roll.
       </p>
       <p>
-        The scoreboard tracks the lowest number of rolls it has taken to win a
+        The scoreboard tracks the lowest number of rolls ever taken to win a
         game. See if you can beat your lowest rolls score!
       </p>
       <h2>About</h2>

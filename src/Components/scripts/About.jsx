@@ -13,10 +13,7 @@ export default function About(props) {
       </p>
       <p>
         To lock or unlock a die, simply click or tap on it. Only unlocked dice
-        will be rolled when you click the Roll button.
-      </p>
-      <p>
-        During game play, you'll also see the <SlRefresh /> button, which will immediately create a new game.
+        will be rolled when you click the Roll button. During game play, you'll also see the <SlRefresh /> button, which will immediately create a new game.
       </p>
       <p>
         The scoreboard tracks the lowest number of rolls it took to get all ten dice locked with the same number. See if you can beat your best score!
@@ -29,11 +26,10 @@ export default function About(props) {
           Scrimba
         </a>
         . The game has been modified to include a few additional features,
-        including a reset button, a help button, dice pips (built with CSS), and
-        score keeping using local browser storage.
+        including viewport responsiveness, a reset button, a help button and help section, dice pips (built with CSS), and score keeping using local browser storage. The source code for this project is <a href="https://github.com/redirwin/tenzies" target="_blank">available on GitHub</a>.
       </p>
       <p>
-        The source code for this project is <a href="https://github.com/redirwin/tenzies" target="_blank">available on GitHub</a>.
+        
       </p>
       <h2>About the Developer</h2>
       <p>

@@ -36,11 +36,11 @@ export default function About(props) {
         David Irwin is a web developer based in Mesa, Arizona. He has been
         building websites and web applications for over 10 years, and has been
         working with React.js since 2019. David works in higher education, and
-        is heavily involved with custom Druapal CMS implementations.
+        is heavily involved with custom Drupal CMS implementations.
       </p>
       <p>
-        Some personal projects he's working on include a Minesweeper clone, a
-        headless CMS implementation, and a CRM for notary publics.
+        David is currently building a Minesweeper clone, a has plans to develop a
+        full-stack headless CMS and several business tools for notary publics.
       </p>
       <div>
         <a href="https://linkedin.com/in/redirwin" target="_blank">

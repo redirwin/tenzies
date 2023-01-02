@@ -8,6 +8,7 @@ import Die from "./Die";
 import About from "./About";
 
 export default function App() {
+  const [isRolling, setIsRolling] = useState(false);
   const [rolls, setRolls] = useState(0);
   const [showInstructions, setShowInstructions] = useState(true);
   const [dice, setDice] = useState(getAllNewDice);
@@ -40,6 +41,7 @@ export default function App() {
   }
 
   function getAllNewDice() {
+    setIsRolling(true);
     const dice = [];
     for (let i = 0; i < 10; i++) {
       dice.push({
@@ -51,6 +53,17 @@ export default function App() {
     return dice;
   }
 
+  function holdDice(id) {
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.id === id ? 
+        { ...die, isHeld: !die.isHeld } : 
+        die;
+      })
+    );
+  }
+
+
   function rollDice() {
     if (tenzies) {
       setTenzies(false);
@@ -59,6 +72,7 @@ export default function App() {
       setShowInstructions(false);
       return;
     }
+    setIsRolling(true);
     setDice((prevDice) =>
       prevDice.map((die) => {
         return die.isHeld
@@ -68,14 +82,6 @@ export default function App() {
     );
     // checks if all dice are held before incrementing rolls
     !dice.every((die) => die.isHeld) && setRolls((prevRolls) => prevRolls + 1);
-  }
-
-  function holdDice(id) {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
-      })
-    );
   }
 
   function resetGame() {
@@ -90,7 +96,7 @@ export default function App() {
   }
 
   const diceElements = dice.map((die) => (
-    <Die key={die.id} {...die} holdDice={holdDice} />
+    <Die key={die.id} {...die} holdDice={holdDice} isRolling={isRolling} setIsRolling={setIsRolling}/>
   ));
 
   return (

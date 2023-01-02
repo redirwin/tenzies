@@ -48,32 +48,7 @@ export default function About(props) {
         </a>
         .
       </p>
-      <h2>
-        About the Developer
-        <div>
-          <a
-            href="https://linkedin.com/in/redirwin"
-            target="_blank"
-            onClick={handleLinkClick}
-          >
-            <TfiLinkedin />
-          </a>
-          <a
-            href="https://github.com/redirwin"
-            target="_blank"
-            onClick={handleLinkClick}
-          >
-            <TfiGithub />
-          </a>
-          <a
-            href="https://twitter.com/redirwin"
-            target="_blank"
-            onClick={handleLinkClick}
-          >
-            <TfiTwitter />
-          </a>
-        </div>
-      </h2>
+      <h2>About the Developer</h2>
       <p>
         David Irwin is a dad, husband, and web developer based in Mesa, Arizona.
         He has been building websites for over 10 years, and working with
@@ -84,6 +59,32 @@ export default function About(props) {
       <p>
         David works in higher education, and is heavily involved with custom
         Drupal CMS implementations.
+        <div>
+          <a
+            title="LinkedIn"
+            href="https://linkedin.com/in/redirwin"
+            target="_blank"
+            onClick={handleLinkClick}
+          >
+            <TfiLinkedin />
+          </a>
+          <a
+            title="GitHub"
+            href="https://github.com/redirwin"
+            target="_blank"
+            onClick={handleLinkClick}
+          >
+            <TfiGithub />
+          </a>
+          <a
+            title="Twitter"
+            href="https://twitter.com/redirwin"
+            target="_blank"
+            onClick={handleLinkClick}
+          >
+            <TfiTwitter />
+          </a>
+        </div>
       </p>
 
       <h2>Attribution</h2>

@@ -8,12 +8,14 @@ import Die from "./Die";
 import About from "./About";
 
 export default function App() {
+  const [isRolling, setIsRolling] = useState(false);
   const [rolls, setRolls] = useState(0);
   const [showInstructions, setShowInstructions] = useState(true);
   const [dice, setDice] = useState(getAllNewDice);
   const [tenzies, setTenzies] = useState(false);
   const [stats, setStats] = useState(getStats());
   const [displayAbout, setDisplayAbout] = useState(false);
+  const [animationChecked, setAnimationChecked] = useState(false);
 
   useEffect(() => {
     const allDiceSame = dice.every((die) => die.value === dice[0].value);
@@ -40,6 +42,7 @@ export default function App() {
   }
 
   function getAllNewDice() {
+    setIsRolling(true);
     const dice = [];
     for (let i = 0; i < 10; i++) {
       dice.push({
@@ -51,7 +54,19 @@ export default function App() {
     return dice;
   }
 
-  function rollDice() {
+  function holdDice(id) {
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.id === id ? 
+        { ...die, isHeld: !die.isHeld } : 
+        die;
+      })
+    );
+  }
+
+
+  function rollDice(event) {
+    event.stopPropagation();
     if (tenzies) {
       setTenzies(false);
       setDice(getAllNewDice);
@@ -59,6 +74,7 @@ export default function App() {
       setShowInstructions(false);
       return;
     }
+    setIsRolling(true);
     setDice((prevDice) =>
       prevDice.map((die) => {
         return die.isHeld
@@ -70,19 +86,12 @@ export default function App() {
     !dice.every((die) => die.isHeld) && setRolls((prevRolls) => prevRolls + 1);
   }
 
-  function holdDice(id) {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
-      })
-    );
-  }
-
   function resetGame() {
     setDice(getAllNewDice);
     setRolls(1);
     setTenzies(false);
     setShowInstructions(false);
+    setIsRolling(true);
   }
 
   function handleShowAbout() {
@@ -90,7 +99,13 @@ export default function App() {
   }
 
   const diceElements = dice.map((die) => (
-    <Die key={die.id} {...die} holdDice={holdDice} />
+    <Die 
+      key={die.id} 
+      {...die} 
+      holdDice={holdDice} 
+      isRolling={isRolling} 
+      setIsRolling={setIsRolling} 
+      animationChecked={animationChecked}/>
   ));
 
   return (
@@ -120,7 +135,7 @@ export default function App() {
           {rolls === 0 && showInstructions === true ? (
             <p>
               <span>How to Play</span>
-              Click or tap on a die to lock or unlock it. Only unlocked dice
+              Click or tap a die to lock or unlock it. Only unlocked dice
               will be rolled when you click the Roll button. The game is won
               when all ten dice are matched and locked. Use the refresh button
               to quickly try for a better first roll.
@@ -128,7 +143,7 @@ export default function App() {
           ) : (
             <div className={styles.score}>
               <div>
-                Lowest Rolls: <span>{stats.lowestRolls}</span>
+                Fewest Rolls Ever: <span>{stats.lowestRolls}</span>
               </div>
               <div>
                 Rolls This Game: <span>{rolls}</span>
@@ -138,6 +153,19 @@ export default function App() {
         </header>
         {rolls > 0 && (
           <section className={styles.dice_container}>{diceElements}</section>
+        )}
+        {!rolls > 0 && (
+          <div className={styles.animationCheckboxContainer}>
+            <label htmlFor="animationCheckbox">
+              <input
+                id="animationCheckbox"
+                type="checkbox"
+                checked={animationChecked}
+                onChange={(event) => setAnimationChecked(event.target.checked)}
+              />
+              Animate Rolls
+            </label>
+          </div>
         )}
         <div className={styles.button_container}>
           {rolls > 0 && !tenzies && (
@@ -153,6 +181,7 @@ export default function App() {
             {tenzies ? "New Game" : rolls === 0 ? "Let's Roll!" : "Roll 'em'!"}
           </button>
         </div>
+        
       </main>
     </>
   );

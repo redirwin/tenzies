@@ -171,6 +171,23 @@
 
     }
 
+    .animationCheckboxContainer {
+        z-index: 2000;
+        display: flex;
+        margin: -1rem 0 1rem;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-family: 'Karla', sans-serif;
+        font-size: 1.25rem;
+        input{
+
+            margin-right: .5rem;
+            height: 20px;
+            width: 20px;
+        }
+    }
+
 }
 
 .score {

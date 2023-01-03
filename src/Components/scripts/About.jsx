@@ -20,7 +20,7 @@ export default function About(props) {
       <h2>Rules</h2>
       <p>
         This is a simpler version of the popular dice game, Tenzi. The game is
-        won when all ten dice are matched and locked. Click or tap on a die to
+        won when all ten dice are matched and locked. Click or tap a die to
         lock or unlock it. Only unlocked dice will be rolled when you click the
         Roll button.
       </p>
@@ -99,7 +99,11 @@ export default function About(props) {
           design specs
         </a>{" "}
         and requirements provided by{" "}
-        <a href="https://scrimba.com/community" target="_blank">
+        <a 
+          href="https://scrimba.com/community" 
+          target="_blank"
+          onClick={handleLinkClick}  
+        >
           Scrimba
         </a>
         . The two-dice icon, which provided inspiration for the final color
